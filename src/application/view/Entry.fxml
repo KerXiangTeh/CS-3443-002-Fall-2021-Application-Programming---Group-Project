@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EntryController">
+   <children>
+      <Label layoutX="225.0" layoutY="368.0" text="New Entry Page">
+         <font>
+            <Font name="Baskerville Old Face" size="55.0" />
+         </font>
+      </Label>
+      <Button fx:id="back_btn" layoutX="671.0" layoutY="14.0" mnemonicParsing="false" onAction="#homeScreen" text="BACK">
+         <font>
+            <Font name="Baskerville Old Face" size="28.0" />
+         </font>
+      </Button>
+      <Button fx:id="submit_btn" layoutX="639.0" layoutY="733.0" mnemonicParsing="false" onAction="#submit" text="SUBMIT">
+         <font>
+            <Font name="Baskerville Old Face" size="28.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

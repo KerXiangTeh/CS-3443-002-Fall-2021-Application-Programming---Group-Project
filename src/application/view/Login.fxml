@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginController">
+   <children>
+      <ImageView fitHeight="285.0" fitWidth="435.0" layoutX="183.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/Detective%20Cheesecake.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="183.0" layoutY="57.0" text="ENERGID">
+         <font>
+            <Font name="Baskerville Old Face" size="96.0" />
+         </font>
+      </Label>
+      <Label layoutX="242.0" layoutY="450.0" text="WELCOME BACK!">
+         <font>
+            <Font name="Baskerville Old Face" size="37.0" />
+         </font>
+      </Label>
+      <Label layoutX="118.0" layoutY="538.0" text="Username:">
+         <font>
+            <Font name="Baskerville Old Face" size="37.0" />
+         </font>
+      </Label>
+      <Label layoutX="118.0" layoutY="617.0" text="Password:">
+         <font>
+            <Font name="Baskerville Old Face" size="37.0" />
+         </font>
+      </Label>
+      <TextField fx:id="username_field" layoutX="335.0" layoutY="538.0" prefHeight="45.0" prefWidth="295.0" promptText="Enter username here" />
+      <TextField fx:id="password_field" layoutX="335.0" layoutY="617.0" prefHeight="45.0" prefWidth="295.0" promptText="Enter password here" />
+      <Button fx:id="login_btn" layoutX="328.0" layoutY="687.0" mnemonicParsing="false" onAction="#login" prefHeight="61.0" prefWidth="147.0" text="LOGIN">
+         <font>
+            <Font name="Baskerville Old Face" size="31.0" />
+         </font>
+      </Button>
+      <Label fx:id="error_text" layoutX="260.0" layoutY="505.0" textFill="RED">
+         <font>
+            <Font name="Baskerville Old Face" size="28.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
