@@ -20,8 +20,10 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -92,6 +94,11 @@ public class HomeController {
     }
     
     public void initialize() {
+    	
+    	//creating objects with dummy values
+    	//Arraylist
+    	
+    	//populating the chart
     	XYChart.Series series = new XYChart.Series<>();
     	series.setName("Calories");
     	
@@ -116,17 +123,26 @@ public class HomeController {
     
     	//load data
     	table.setItems(getEntries());
+    	
+    	//update table to allow calories field to be editable
+    	table.setEditable(true);
+    	tableCalories.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
 	private ObservableList<Entry> getEntries() {
 		
 		ObservableList<Entry> entries = FXCollections.observableArrayList();
-		entries.add(new Entry("Hotdogs", LocalDate.of(2021, Month.SEPTEMBER, 1), "2800"));
-		entries.add(new Entry("Durian", LocalDate.of(2021, Month.SEPTEMBER, 2), "1800"));
-		entries.add(new Entry("Apple", LocalDate.of(2021, Month.SEPTEMBER, 3), "400"));
-		entries.add(new Entry("Pizza", LocalDate.of(2021, Month.SEPTEMBER, 4), "3000"));
+		entries.add(new Entry("Hotdogs", LocalDate.of(2021, Month.SEPTEMBER, 1), "2800", "970"));
+		entries.add(new Entry("Durian", LocalDate.of(2021, Month.SEPTEMBER, 2), "1800", "1333"));
+		entries.add(new Entry("Apple", LocalDate.of(2021, Month.SEPTEMBER, 3), "400", "421"));
+		//entries.add(new 7);
 		
 		return entries;
+	}
+	
+	public void changeCalories(CellEditEvent edittedCell) {
+		Entry entrySelected = table.getSelectionModel().getSelectedItem();
+		entrySelected.setCalories(edittedCell.getNewValue().toString());
 	}
 
 }

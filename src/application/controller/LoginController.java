@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import application.model.Entry;
 import application.model.dataIO;
 import application.model.user;
 import javafx.event.ActionEvent;
@@ -40,6 +42,10 @@ public class LoginController {
     public void initialize() {
     	userList = dataIO.loadUsers("users.csv");
     	Collections.sort(userList);
+    	
+    	//creating a new file with dummy data 
+    	//ArrayList<Entry> entries = new ArrayList<Entry>();
+    	//entries.add(entry())
     }
     
     @FXML
