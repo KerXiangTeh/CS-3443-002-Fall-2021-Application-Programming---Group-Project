@@ -3,6 +3,12 @@ package application.controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.Month;
+
+import application.model.Entry;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +21,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -30,7 +37,7 @@ public class HomeController {
     private Button weekly_btn;
 
     @FXML
-    private TableColumn<?, ?> tableCalories;
+    private TableColumn<Entry, String> tableCalories;
 
     @FXML
     private CategoryAxis time;
@@ -42,10 +49,10 @@ public class HomeController {
     private Button logout_btn2;
 
     @FXML
-    private TableView<?> table;
+    private TableView<Entry> table;
 
     @FXML
-    private TableColumn<?, ?> tableDate;
+    private TableColumn<Entry, LocalDate> tableDate;
     
     @FXML
     private AnchorPane mainPane;
@@ -102,6 +109,24 @@ public class HomeController {
     	series2.getData().add(new XYChart.Data("9/4",2000));
     	
     	lineChart.getData().addAll(series, series2);
+    	
+    	//setup the columns in the table
+    	tableDate.setCellValueFactory(new PropertyValueFactory<Entry, LocalDate>("enteredDate"));
+    	tableCalories.setCellValueFactory(new PropertyValueFactory<Entry, String>("calories"));
+    
+    	//load data
+    	table.setItems(getEntries());
     }
+
+	private ObservableList<Entry> getEntries() {
+		
+		ObservableList<Entry> entries = FXCollections.observableArrayList();
+		entries.add(new Entry("Hotdogs", LocalDate.of(2021, Month.SEPTEMBER, 1), "2800"));
+		entries.add(new Entry("Durian", LocalDate.of(2021, Month.SEPTEMBER, 2), "1800"));
+		entries.add(new Entry("Apple", LocalDate.of(2021, Month.SEPTEMBER, 3), "400"));
+		entries.add(new Entry("Pizza", LocalDate.of(2021, Month.SEPTEMBER, 4), "3000"));
+		
+		return entries;
+	}
 
 }

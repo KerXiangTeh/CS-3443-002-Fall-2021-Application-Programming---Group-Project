@@ -9,7 +9,7 @@ public class dataIO {
 	
 	public static void writeUser(user u) {
 		try {
-			File fileOut = new File("data/user.csv");
+			File fileOut = new File("data/user.txt");
 			FileWriter out = new FileWriter(fileOut);
 			
 			String outString = u.getUsername() + "," + u.getPassword() + "," + u.getName() + ",";
