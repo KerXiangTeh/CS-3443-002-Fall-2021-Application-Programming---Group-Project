@@ -9,6 +9,8 @@ import java.util.Collections;
 import application.model.Entry;
 import application.model.dataIO;
 import application.model.user;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,14 +41,25 @@ public class LoginController {
     
     private ArrayList<user> userList;
     
+    final ObservableList<Entry> entries = FXCollections.observableArrayList();
+    
     public void initialize() {
     	userList = dataIO.loadUsers("users.csv");
     	Collections.sort(userList);
     	
-    	//creating a new file with dummy data 
-    	//ArrayList<Entry> entries = new ArrayList<Entry>();
-    	//entries.add(entry())
+    	//creating an array of Entries with dummy data 
+    	//entries.add(new Entry())
     }
+    
+    /*private ObservableList<Entry> getEntries() {
+		
+		ObservableList<Entry> entries = FXCollections.observableArrayList();
+		entries.add(new Entry("Hotdogs", LocalDate.of(2021, Month.SEPTEMBER, 1), "2800", "970"));
+		entries.add(new Entry("Durian", LocalDate.of(2021, Month.SEPTEMBER, 2), "1800", "1333"));
+		entries.add(new Entry("Apple", LocalDate.of(2021, Month.SEPTEMBER, 3), "400", "421"));
+		
+		return entries;
+	}*/
     
     @FXML
     void login(ActionEvent event) throws IOException {

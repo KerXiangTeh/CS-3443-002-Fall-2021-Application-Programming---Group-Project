@@ -58,6 +58,8 @@ public class HomeController {
     
     @FXML
     private AnchorPane mainPane;
+    
+    final ObservableList<Entry> entries = FXCollections.observableArrayList();
 
     @FXML
     void logout(ActionEvent event) throws IOException{
@@ -71,6 +73,12 @@ public class HomeController {
     	window.show();
 }
 
+    public void appendEntry(Entry entry) {
+    	ObservableList<Entry> entries = table.getItems();
+    	entries.add(entry);
+    	table.setItems(entries);
+    }
+    
     @FXML
     void newEntry(ActionEvent event) throws IOException {
 
@@ -94,9 +102,6 @@ public class HomeController {
     }
     
     public void initialize() {
-    	
-    	//creating objects with dummy values
-    	//Arraylist
     	
     	//populating the chart
     	XYChart.Series series = new XYChart.Series<>();
